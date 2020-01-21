@@ -10,7 +10,7 @@ const restify = require('restify');
 const { BotFrameworkAdapter } = require('botbuilder');
 
 // This bot's main dialog.
-const { EchoBot } = require('./bot');
+const { MyBot } = require('./bot');
 
 // Import required bot configuration.
 const ENV_FILE = path.join(__dirname, '.env');
@@ -54,8 +54,15 @@ const onTurnErrorHandler = async (context, error) => {
 // Set the onTurnError for the singleton BotFrameworkAdapter.
 adapter.onTurnError = onTurnErrorHandler;
 
+// Map knowledge base endpoint values from .env file into the required format for `QnAMaker`.
+const configuration = {
+    knowledgeBaseId: process.env.QnAKnowledgebaseId,
+    endpointKey: process.env.QnAAuthKey,
+    host: process.env.QnAEndpointHostName
+};
+
 // Create the main dialog.
-const myBot = new EchoBot();
+const myBot = new MyBot(configuration, {});
 
 // Listen for incoming requests.
 server.post('/api/messages', (req, res) => {

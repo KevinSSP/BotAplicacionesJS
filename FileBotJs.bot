@@ -1,0 +1,18 @@
+{
+    "name": "FileBotJs",
+    "description": "",
+    "services": [
+        {
+            "type": "endpoint",
+            "appId": "",
+            "appPassword": "",
+            "endpoint": "http://localhost:3978/api/messages",
+            "id": "3e5b1000-3c10-11ea-8235-118b0a00da9b",
+            "name": "http://localhost:3978/api/messages"
+        }
+    ],
+    "padlock": "",
+    "version": "2.0",
+    "overrides": null,
+    "path": "C:\\Users\\Kevin\\Documents\\BotAplicacionesJS\\FileBotJs.bot"
+}
